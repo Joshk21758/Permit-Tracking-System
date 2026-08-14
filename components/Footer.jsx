@@ -15,17 +15,16 @@ export default function Footer() {
                 </span>
               </div>
               <p className="text-slate-400 mb-6 leading-relaxed">
-                Providing exceptional care with a gentle touch. Your health is
-                our top priority.
+                Providing seamless public and E-services to local communities.
               </p>
               <div className="flex items-center gap-4 text-slate-400">
                 <Phone className="w-5 h-5" />
-                <span>077 1078 320</span>
+                <span>+260 972 7127 79</span>
               </div>
               <div className="flex items-center gap-4 text-slate-400 mt-3">
                 <MapPin className="w-5 h-5" />
                 <span>
-                  Libala stage 1, No.2 Boli Rd
+                  Shantumbu Rd, kafue
                   <br />
                   Lusaka, 10101
                 </span>

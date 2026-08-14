@@ -1,5 +1,5 @@
 import ApplicationCard from "@/components/ApplicationCard";
-import { getCollection } from "../../../../lib/db";
+import { getCollection } from "@/lib/db";
 import { ObjectId } from "mongodb";
 
 export default async function ShowApplication({ params }) {

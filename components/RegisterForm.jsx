@@ -18,21 +18,6 @@ export default function RegisterForm() {
       </p>
 
       <form className="space-y-4" action={action}>
-        {/* Account Type Selection */}
-        <div className="grid grid-cols-2 gap-3 mb-2">
-          <label
-            className={`p-3 border rounded-xl cursor-pointer text-xs font-bold text-center transition`}
-          >
-            Individual Resident
-          </label>
-          <label
-            className={`p-3 border rounded-xl cursor-pointer text-xs font-bold text-center transition 
-              `}
-          >
-            Registered Enterprise
-          </label>
-        </div>
-
         {/* Full Name */}
         <div>
           <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5"></label>

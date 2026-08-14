@@ -1,4 +1,4 @@
-import { Building2, MapPin, Phone, Smile } from "lucide-react";
+import { Building2, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -20,6 +20,7 @@ export default function Footer() {
               <div className="flex items-center gap-4 text-slate-400">
                 <Phone className="w-5 h-5" />
                 <span>+260 972 7127 79</span>
+                <span>+260 967 8864 81</span>
               </div>
               <div className="flex items-center gap-4 text-slate-400 mt-3">
                 <MapPin className="w-5 h-5" />

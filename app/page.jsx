@@ -23,9 +23,9 @@ export default function Home() {
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
               Empowering Municipal Governance Through{" "}
-              <span className="text-emerald-600">Digital Access</span>
+              <span className="text-green-600">Digital Access</span>
             </h1>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed">
               Fast, transparent, and completely paperless processing for
               residents, commercial enterprises, and non-governmental
               organizations across all councils.
@@ -49,22 +49,22 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-xs font-semibold text-slate-500 mb-8">
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-emerald-500" />{" "}
+                    <FileCheck2 className="w-4 h-4 text-green-500" />{" "}
                     Residential Building Permits
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-emerald-500" /> Civic
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Civic
                     Utility & Sanitation Requests
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-emerald-500" /> Personal
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Personal
                     Property Rates & Levies
                   </li>
                 </ul>
               </div>
               <Link
                 href="/services?type=citizen"
-                className="w-full py-3 bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 text-sm font-semibold rounded-xl text-center transition flex items-center justify-center gap-2"
+                className="w-full py-3 bg-slate-100 hover:bg-green-600 hover:text-white text-slate-800 text-sm font-semibold rounded-xl text-center transition flex items-center justify-center gap-2"
               >
                 Access Citizen Portal
                 <ArrowRight className="w-4 h-4" />
@@ -89,15 +89,15 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-xs font-semibold text-slate-500 mb-8">
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-blue-500" /> Fire &
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Fire &
                     Public Health Trading Licenses
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-blue-500" /> Liquor &
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Liquor &
                     Commercial Facility Permits
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-blue-500" /> Outdoor
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Outdoor
                     Billboard & Signage Approvals
                   </li>
                 </ul>
@@ -126,22 +126,22 @@ export default function Home() {
                 </p>
                 <ul className="space-y-2 text-xs font-semibold text-slate-500 mb-8">
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-purple-500" /> Public
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Public
                     Event & Assembly Clearances
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-purple-500" /> NGO &
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> NGO &
                     Community Group Operating Status
                   </li>
                   <li className="flex items-center gap-2">
-                    <FileCheck2 className="w-4 h-4 text-purple-500" />{" "}
-                    Charitable Land & Facility Approvals
+                    <FileCheck2 className="w-4 h-4 text-green-500" /> Charitable
+                    Land & Facility Approvals
                   </li>
                 </ul>
               </div>
               <Link
                 href="/services?type=civil"
-                className="w-full py-3 bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 text-sm font-semibold rounded-xl text-center transition flex items-center justify-center gap-2"
+                className="w-full py-3 bg-slate-100 hover:bg-green-800 hover:text-white text-slate-800 text-sm font-semibold rounded-xl text-center transition flex items-center justify-center gap-2"
               >
                 Access CSO Portal
                 <ArrowRight className="w-4 h-4" />

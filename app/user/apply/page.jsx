@@ -1,6 +1,6 @@
 import { getCollection } from "@/lib/db";
 
-export default async function ApplicationsPage() {
+export default async function UserDashboardPage() {
   const applicationCollection = await getCollection("applications");
   const applications = await applicationCollection.find().toArray();
 

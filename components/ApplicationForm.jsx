@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useActionState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { createApplication } from "@/actions/posts";
+import Link from "next/link";
 
 const type = ["Business", "Community event", "Land & construction"];
 
@@ -11,11 +11,10 @@ const initialState = {
   errors: {},
 };
 
-export default function ApplicationForm() {
-  const [state, action, isPending] = useActionState(
-    createApplication,
-    initialState,
-  );
+export default function ApplicationForm({ handler, post }) {
+  const [state, action, isPending] = useActionState(handler, initialState);
+
+  const postId = post?._id ? post._id.toString() : "";
 
   useEffect(() => {
     if (!state) return;
@@ -46,6 +45,11 @@ export default function ApplicationForm() {
         </div>
 
         <form action={action} className="space-y-6">
+          <input
+            type="hidden"
+            name="postId"
+            defaultValue={post?._id?.toString()}
+          />
           <div className="grid gap-6 sm:grid-cols-2">
             <label className="space-y-3">
               <span className="text-sm font-medium text-slate-700">
@@ -54,7 +58,7 @@ export default function ApplicationForm() {
               <input
                 type="text"
                 name="appName"
-                placeholder="Enter your Names"
+                placeholder="Enter your full names"
                 className="w-full rounded-3xl border border-green-500 bg-slate-50 px-5 py-4 text-slate-900 placeholder-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
               />
             </label>
@@ -76,7 +80,19 @@ export default function ApplicationForm() {
               <input
                 type="text"
                 name="address"
-                placeholder="Your Home address"
+                placeholder="Enter Home address"
+                className="w-full rounded-3xl border border-green-500 bg-slate-50 px-5 py-4 text-slate-900 placeholder-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
+              />
+            </label>
+
+            <label className="space-y-3">
+              <span className="text-sm font-medium text-slate-700">
+                Phone Number *
+              </span>
+              <input
+                type="text"
+                name="phone"
+                placeholder="e.g., 097 27127 79"
                 className="w-full rounded-3xl border border-green-500 bg-slate-50 px-5 py-4 text-slate-900 placeholder-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
               />
             </label>
@@ -117,7 +133,7 @@ export default function ApplicationForm() {
             <textarea
               name="applicationDescription"
               rows={5}
-              placeholder="Please share symptoms or anything else we should know."
+              placeholder="Please share anything additional information we should know."
               className="w-full rounded-3xl border border-green-500 bg-slate-50 px-5 py-4 text-slate-900 placeholder-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-100"
             />
             {state?.errors?.applicationDescription && (
@@ -129,10 +145,16 @@ export default function ApplicationForm() {
 
           <button
             disabled={isPending}
-            className="w-full rounded-full bg-green-400 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-teal-600/20 transition hover:bg-teal-700 cursor-pointer disabled:opacity-60"
+            className="w-full rounded-full bg-green-400 px-8 py-4 text-base font-semibold text-white shadow-xl shadow-teal-600/20 transition hover:bg-green-700 cursor-pointer disabled:opacity-60"
           >
             {isPending ? "Submitting..." : "Submit Application"}
           </button>
+          <Link
+            href="/user/dashboard"
+            className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-green-900 transition cursor-pointer text-left mt-4"
+          >
+            Back to dashboard
+          </Link>
         </form>
       </div>
     </>

@@ -18,14 +18,14 @@ export default function AdminRegisterForm() {
       <div className="mx-auto flex max-w-5xl flex-col overflow-hidden rounded-3xl border border-slate-800 bg-green-900/90 shadow-2xl shadow-black/30 lg:flex-row">
         <div className="flex flex-1 flex-col justify-center bg-gradient-to-br from-cyan-600 to-teal-800 p-8 sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-100">
-            New Life Medical
+            E-Council Portal
           </p>
           <h1 className="mt-3 text-3xl font-semibold sm:text-4xl">
             Create an Administrator account
           </h1>
           <p className="mt-4 max-w-md text-sm leading-6 text-cyan-50/90 sm:text-base">
-            Register a secure administrator profile to manage appointments and
-            clinic operations.
+            Register a secure administrator profile to manage applications and
+            facility operations.
           </p>
         </div>
 

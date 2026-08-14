@@ -14,16 +14,15 @@ export default function AdminLoginForm() {
   return (
     <div className="min-h-screen bg-slate-950 px-4 py-10 text-white sm:px-6 lg:px-8 mt-28">
       <div className="mx-auto flex max-w-5xl flex-col overflow-hidden rounded-3xl border border-slate-800 bg-green-900/90 shadow-2xl shadow-black/30 lg:flex-row">
-        <div className="flex flex-1 flex-col justify-center bg-gradient-to-br from-cyan-600 to-teal-800 p-8 sm:p-10">
+        <div className="flex flex-1 flex-col justify-center bg-gradient-to-br from-teal-600 to-green-800 p-8 sm:p-10">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-100">
-            New Life Medical
+            E-Council portal
           </p>
           <h1 className="mt-3 text-3xl font-semibold sm:text-4xl">
             Welcome back Admin
           </h1>
           <p className="mt-4 max-w-md text-sm leading-6 text-cyan-50/90 sm:text-base">
-            Sign in to manage appointments, patient requests, and daily clinic
-            operations.
+            Sign in to manage citizen based applications.
           </p>
         </div>
 

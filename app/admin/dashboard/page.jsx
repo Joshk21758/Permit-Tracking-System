@@ -7,18 +7,18 @@ export default async function AdminDashboard({ searchParams }) {
   const sortOrder = searchParams?.sortOrder === "desc" ? "desc" : "asc";
 
   // get applications collection
-  const appointmentsCollection = await getCollection("applications");
-  const appointments = await appointmentsCollection.find().toArray();
+  const applicationsCollection = await getCollection("applications");
+  const applications = await applicationsCollection.find().toArray();
 
-  const sortedAppointments = [...appointments].sort((a, b) => {
-    const normalizeValue = (appointment) => {
+  const sortedApplications = [...applications].sort((a, b) => {
+    const normalizeValue = (application) => {
       if (sortBy === "submitted") {
-        return appointment.createdAt ?
-            new Date(appointment.createdAt).getTime()
+        return application.createdAt ?
+            new Date(application.createdAt).getTime()
           : appointment._id.getTimestamp().getTime();
       }
 
-      return (appointment[sortBy] ?? "").toString().toLowerCase();
+      return (application[sortBy] ?? "").toString().toLowerCase();
     };
 
     const aValue = normalizeValue(a);
@@ -40,12 +40,12 @@ export default async function AdminDashboard({ searchParams }) {
       >
         {field === "submitted" ?
           "Submitted"
-        : field === "fullName" ?
-          "Patient"
-        : field === "service" ?
-          "Service"
-        : field === "prefDate" ?
-          "Date"
+        : field === "appName" ?
+          "Applicant"
+        : field === "applicationType" ?
+          "Permit type"
+        : field === "Address" ?
+          "Address"
         : field}
         <span className="text-xs uppercase tracking-[0.24em]">
           {selected ?
@@ -78,7 +78,7 @@ export default async function AdminDashboard({ searchParams }) {
               <thead>
                 <tr className="bg-neutral-800 text-white">
                   <th className="px-6 py-4 text-left text-sm font-semibold">
-                    {buildSortLink("fullName")}
+                    {buildSortLink("appName")}
                   </th>
                   <th className="px-6 py-4 text-left text-sm font-semibold">
                     Email
@@ -87,13 +87,13 @@ export default async function AdminDashboard({ searchParams }) {
                     Phone Number
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold">
-                    {buildSortLink("service")}
+                    {buildSortLink("applicationType")}
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold">
-                    {buildSortLink("prefDate")}
+                    {buildSortLink("address")}
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold">
-                    Preferred Time
+                    NRC
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold">
                     Description
@@ -107,15 +107,15 @@ export default async function AdminDashboard({ searchParams }) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {sortedAppointments.length > 0 ?
-                  sortedAppointments.map((application) => (
+                {sortedApplications.length > 0 ?
+                  sortedApplications.map((application) => (
                     <tr
                       key={application._id}
                       className="hover:bg-gray-50 transition-colors duration-150"
                     >
                       <td className="px-6 py-4">
                         <p className="text-sm font-medium text-neutral-900">
-                          {application.fullName}
+                          {application.appName}
                         </p>
                       </td>
                       <td className="px-6 py-4">
@@ -125,27 +125,27 @@ export default async function AdminDashboard({ searchParams }) {
                       </td>
                       <td className="px-6 py-4 text-center">
                         <p className="text-sm font-semibold text-gray-600">
-                          {application.phoneNumber}
+                          {application.phone}
                         </p>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <p className="text-sm font-semibold text-gray-600">
-                          {application.service}
+                          {application.applicationType}
                         </p>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <p className="text-sm font-semibold text-gray-600">
-                          {appointment.prefDate}
+                          {application.address}
                         </p>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <p className="text-sm font-semibold text-gray-600">
-                          {appointment.prefTime}
+                          {application.nationalId}
                         </p>
                       </td>
                       <td className="px-6 py-4 text-center">
                         <p className="text-sm font-semibold text-gray-600">
-                          {appointment.message}
+                          {application.applicationDescription}
                         </p>
                       </td>
                       <td className="px-6 py-4 text-center">
@@ -172,11 +172,11 @@ export default async function AdminDashboard({ searchParams }) {
                               value={application._id.toString()}
                             />
                             <button className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-slate-500 hover:bg-slate-900 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer">
-                              Reschedule
+                              Reject
                             </button>
                           </form>
                           <Link
-                            href={`/appointments/show/${application._id.toString()}`}
+                            href={`/user/apply/show/${application._id.toString()}`}
                             className="inline-flex items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-slate-500 hover:bg-slate-900 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
                           >
                             View details
@@ -188,9 +188,11 @@ export default async function AdminDashboard({ searchParams }) {
                 : <tr>
                     <td
                       colSpan="4"
-                      className="px-6 py-8 text-center text-gray-500"
+                      className="px-6 py-8 text-center text-gray-700"
                     >
-                      <p className="text-3xl">No Appointments available.</p>
+                      <p className="text-3xl text-center">
+                        No Applications available.
+                      </p>
                     </td>
                   </tr>
                 }

@@ -14,7 +14,7 @@ export default function LoginForm() {
       {/* Account Type Toggle (Citizen vs Council Officer) */}
       <div className="grid grid-cols-2 p-1 bg-slate-100 rounded-xl mb-6"></div>
 
-      <form className="space-y-4">
+      <form className="space-y-4" action={action}>
         {/* Identity/Email Input */}
         <div>
           <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
@@ -77,10 +77,11 @@ export default function LoginForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3.5 font-semibold rounded-xl text-sm text-white shadow-md transition flex items-center justify-center gap-2 mt-2
+          disabled={isPending}
+          className="w-full py-3.5 font-semibold rounded-xl text-sm bg-green-600 hover:bg-green-900 text-white shadow-md transition flex items-center justify-center gap-2 mt-2 cursor-pointer
           "
         >
-          Sign In
+          {isPending ? "Signing In..." : "Sign In"}
           <ArrowRight className="w-4 h-4" />
         </button>
       </form>

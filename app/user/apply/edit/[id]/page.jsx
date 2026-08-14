@@ -1,8 +1,9 @@
-import ApplicationCard from "@/components/ApplicationCard";
-import { getCollection } from "../../../../lib/db";
+import { getCollection } from "@/lib/db";
 import { ObjectId } from "mongodb";
+import ApplicationForm from "@/components/ApplicationForm";
+import { updateApplication } from "@/actions/posts";
 
-export default async function ShowApplication({ params }) {
+export default async function EditApplication({ params }) {
   const { id } = await params;
 
   const applicationCollection = await getCollection("applications");
@@ -13,7 +14,7 @@ export default async function ShowApplication({ params }) {
       _id: ObjectId.createFromHexString(id),
     });
 
-    if (appointment) {
+    if (application) {
       application = JSON.parse(JSON.stringify(application));
     }
   }
@@ -23,15 +24,15 @@ export default async function ShowApplication({ params }) {
       <div className="mx-auto flex max-w-6xl flex-col items-center">
         <div className="mb-8 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal-600">
-            Application details
+            Edit your Application
           </p>
           <h1 className="mt-5 text-3xl font-bold tracking-tight text-neutral-700 sm:text-4xl">
-            View permit information
+            Make changes to your recent application
           </h1>
         </div>
 
         {application ?
-          <ApplicationCard application={application} />
+          <ApplicationForm handler={updateApplication} post={application} />
         : <div className="w-full max-w-2xl rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-xl shadow-slate-200/80">
             <h2 className="text-2xl font-semibold text-slate-900">
               Application not found

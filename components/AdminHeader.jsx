@@ -1,7 +1,10 @@
+import { logout } from "@/actions/auth";
+import { authUser } from "@/lib/authUser";
 import { Smile } from "lucide-react";
 import Link from "next/link";
 
 export default async function AdminHeader() {
+  const user = await authUser();
   return (
     <div>
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-40 border-b border-slate-200">
@@ -19,19 +22,6 @@ export default async function AdminHeader() {
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
               <Link
-                href="/admin/dashboard/patient-directory"
-                className="text-slate-600 hover:text-green-600 font-medium transition-colors"
-              >
-                Patient directory
-              </Link>
-
-              <Link
-                href="/admin/dashboard/duty-management"
-                className="text-slate-600 hover:text-green-600 font-medium transition-colors"
-              >
-                Duty Roster
-              </Link>
-              <Link
                 href="/admin/dashboard/facility-metrics"
                 className="text-slate-600 hover:text-green-600 font-medium transition-colors"
               >
@@ -43,6 +33,15 @@ export default async function AdminHeader() {
               >
                 User management
               </Link>
+              {user && (
+                <div>
+                  <form action={logout}>
+                    <button className="text-slate-600 hover:text-green-600 font-medium transition-colors">
+                      Logout
+                    </button>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
         </div>

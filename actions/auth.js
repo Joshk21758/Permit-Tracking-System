@@ -143,7 +143,7 @@ export async function logout(formData) {
 }
 
 export async function adminRegister(state, formData) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   //validate form data
   const validatedFields = AdminRegisterFormSchema.safeParse({
     name: formData.get("name"),
@@ -208,7 +208,7 @@ export async function adminRegister(state, formData) {
 
 //Admin Login server action
 export async function adminLogin(state, formData) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   //Validate form data
   const validatedFields = AdminLoginFormSchema.safeParse({
     email: formData.get("email"),

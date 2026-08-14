@@ -18,21 +18,14 @@ export async function createApplication(state, formData) {
     redirect("/user/login");
   }
 
-  //Validate form data
-  const appName = formData.get("appName");
-  const nationalId = formData.get("nationalId");
-  const address = formData.get("address");
-  const email = formData.get("email");
-  const applicationType = formData.get("applicationType");
-  const applicationDescription = formData.get("applicationDescription");
-
   const validatedFields = UserApplicationSchema.safeParse({
-    appName,
-    nationalId,
-    address,
-    email,
-    applicationType,
-    applicationDescription,
+    appName: formData.get("appName"),
+    nationalId: formData.get("nationalId"),
+    address: formData.get("address"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    applicationType: formData.get("applicationType"),
+    applicationDescription: formData.get("applicationDescription"),
   });
 
   //check if validation is success
@@ -50,6 +43,7 @@ export async function createApplication(state, formData) {
       appName: validatedFields.data.appName,
       nationalId: validatedFields.data.nationalId,
       address: validatedFields.data.address,
+      phone: validatedFields.data.phone,
       email: validatedFields.data.email,
       applicationType: validatedFields.data.applicationType,
       applicationDescription: validatedFields.data.applicationDescription,
@@ -79,13 +73,6 @@ export async function updateApplication(state, formData) {
     redirect("/user/login");
   }
 
-  //validate form fields
-  const appName = formData.get("appName");
-  const nationalId = formData.get("nationalId");
-  const address = formData.get("address");
-  const email = formData.get("email");
-  const applicationType = formData.get("applicationType");
-  const applicationDescription = formData.get("applicationDescription");
   const postId = formData.get("postId");
 
   if (!postId || !ObjectId.isValid(postId)) {
@@ -95,12 +82,13 @@ export async function updateApplication(state, formData) {
   }
 
   const validatedFields = UserApplicationSchema.safeParse({
-    appName,
-    nationalId,
-    address,
-    email,
-    applicationType,
-    applicationDescription,
+    appName: formData.get("appName"),
+    nationalId: formData.get("nationalId"),
+    address: formData.get("address"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    applicationType: formData.get("applicationType"),
+    applicationDescription: formData.get("applicationDescription"),
   });
 
   //check if fields is success
@@ -124,6 +112,7 @@ export async function updateApplication(state, formData) {
         appName: validatedFields.data.appName,
         nationalId: validatedFields.data.nationalId,
         address: validatedFields.data.address,
+        phone: validatedFields.data.phone,
         email: validatedFields.data.email,
         applicationType: validatedFields.data.applicationType,
         applicationDescription: validatedFields.data.applicationDescription,
@@ -137,7 +126,7 @@ export async function updateApplication(state, formData) {
 //Delete user application server action
 export async function deleteApplication(formData) {
   //Simulate async delay
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   //check if user is authenticated
   const user = await authUser();

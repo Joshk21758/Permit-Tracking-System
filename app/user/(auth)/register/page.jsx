@@ -13,7 +13,7 @@ export default function RegisterPage() {
               <Building2 className="w-6 h-6" />
             </div>
             <span className="font-bold text-2xl text-slate-900 tracking-tight">
-              e-Council Portal
+              E-Council Portal
             </span>
           </Link>
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">

@@ -150,39 +150,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Track Section */}
-      <section
-        id="track"
-        className="py-16 bg-slate-100 border-t border-slate-200"
-      >
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
-            Track Any Submitted Application
-          </h2>
-          <p className="text-slate-600 text-sm mb-6">
-            Check real-time processing status using your reference code.
-          </p>
-          <div className="flex gap-2">
-            <input
-              type="text"
-              placeholder="e.g. APP-LCC-2026-00891"
-              className="flex-1 px-4 py-3 bg-white border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            />
-            <button className="px-6 py-3 bg-slate-900 text-white font-semibold rounded-xl text-sm hover:bg-slate-800 transition">
-              Track Status
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-center text-xs">
-        <p>
-          © 2026 Local Government e-Services Portal. Aligned with Smart Zambia
-          Initiatives.
-        </p>
-      </footer>
     </div>
   );
 }

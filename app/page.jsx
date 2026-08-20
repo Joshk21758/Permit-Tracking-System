@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Building2,
   ShieldCheck,
   ArrowRight,
   User,
@@ -114,7 +113,7 @@ export default function Home() {
             {/* 3. Civil Societies */}
             <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Users2 className="w-7 h-7" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-3">
